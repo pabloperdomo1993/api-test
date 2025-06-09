@@ -6,6 +6,10 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.enableVersioning({
+    type: VersioningType.URI
+  })
+
   const config = new DocumentBuilder()
     .setTitle(`Api Test`)
     .setDescription(`Services`)
@@ -13,16 +17,10 @@ async function bootstrap() {
     .addTag('Services Test')
     .build();
 
-  const documentFactory = SwaggerModule.createDocument(app, config, {
-    include: [],
-  });
+  const documentFactory = SwaggerModule.createDocument(app, config);
   
   SwaggerModule.setup('docs', app, documentFactory);
 
-  app.enableVersioning({
-    type: VersioningType.URI
-  })
-  
   await app.listen(3000);
 }
 bootstrap();

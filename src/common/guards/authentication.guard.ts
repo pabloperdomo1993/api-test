@@ -18,9 +18,15 @@ export class AuthenticationGuard implements CanActivate {
         }
 
         const KEY_JWT = this.configService.get<string>('JWT_KEY');
-        const decode = jwt.verify(token, KEY_JWT);
-
-        return true;
+        
+        try {
+            const decoded = jwt.verify(token, KEY_JWT);
+            request.headers['user-id'] = decoded.idUser;
+            
+            return true;
+        } catch (err) {
+            throw new UnauthorizedException('Invalid or expired token');
+        }
     }
 
     private getBearer(request: any): string | null {
