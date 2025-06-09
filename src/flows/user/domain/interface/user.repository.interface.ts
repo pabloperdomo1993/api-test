@@ -1,9 +1,10 @@
 import { FindOneOptions } from "typeorm";
+import { UserEntity } from "../entity/user.entity";
 
 export interface IUserRepository {
-    create(data: any): Promise<any>;
+    create(data: any): Promise<UserEntity>;
 
     findOne(
-        options: FindOneOptions<any>
+        options: FindOneOptions<UserEntity>
     ): Promise<any>;
 }

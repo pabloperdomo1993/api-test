@@ -1,11 +1,12 @@
 import { FindManyOptions, FindOneOptions } from "typeorm";
+import { CityEntity } from "../entity/city.entity";
 
 export interface ICityRepository {
     findOne(
-        options: FindOneOptions<any>
-    ): Promise<any>;
+        options: FindOneOptions<CityEntity>
+    ): Promise<CityEntity>;
 
     find(
-        options: FindManyOptions<any>
-    ): Promise<any>;
+        options: FindManyOptions<CityEntity>
+    ): Promise<CityEntity[]>;
 }

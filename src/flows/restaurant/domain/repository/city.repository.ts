@@ -11,11 +11,11 @@ export class CityRepository implements ICityRepository {
         private readonly cityRepository: Repository<CityEntity>
     ) { }
 
-    async findOne(options: FindOneOptions<any>): Promise<any> {
+    async findOne(options: FindOneOptions<any>): Promise<CityEntity> {
         return await this.cityRepository.findOne(options);
     }
 
-    async find(options: FindManyOptions<any>): Promise<any> {
+    async find(options: FindManyOptions<any>): Promise<CityEntity[]> {
         return await this.cityRepository.find(options);
     }
 }

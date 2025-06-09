@@ -11,7 +11,7 @@ export class RestaurantRepository implements IRestaurantRepository {
         private readonly restaurantRepository: Repository<RestaurantEntity>
     ) { }
 
-    async find(options: FindManyOptions<any>): Promise<any> {
+    async find(options: FindManyOptions<RestaurantEntity>): Promise<RestaurantEntity[]> {
         return await this.restaurantRepository.find(options);
     }
 }

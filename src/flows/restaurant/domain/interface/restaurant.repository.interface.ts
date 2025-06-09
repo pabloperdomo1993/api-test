@@ -1,7 +1,8 @@
 import { FindManyOptions } from "typeorm";
+import { RestaurantEntity } from "../entity/restaurant.entity";
 
 export interface IRestaurantRepository {
     find(
-        options: FindManyOptions<any>
-    ): Promise<any>;
+        options: FindManyOptions<RestaurantEntity>
+    ): Promise<RestaurantEntity[]>;
 }

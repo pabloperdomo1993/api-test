@@ -16,7 +16,7 @@ export class UserRepository implements IUserRepository {
         return await this.userRepository.save(obj);
     }
 
-    async findOne(options: FindOneOptions<any>): Promise<any> {
+    async findOne(options: FindOneOptions<any>): Promise<UserEntity> {
         return await this.userRepository.findOne(options);
     }
 }
