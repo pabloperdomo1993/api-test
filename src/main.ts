@@ -15,6 +15,7 @@ async function bootstrap() {
     .setDescription(`Services`)
     .setVersion('1.0')
     .addTag('Services Test')
+    .addBearerAuth() 
     .build();
 
   const documentFactory = SwaggerModule.createDocument(app, config);

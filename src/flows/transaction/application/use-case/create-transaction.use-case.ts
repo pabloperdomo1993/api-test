@@ -1,5 +1,6 @@
 import { HttpException, Inject, Injectable, Logger } from "@nestjs/common";
 import { ITransactionRepository } from "../../domain/interface/transaction.repository.interface";
+import { TransactionCreateDto } from "../../presentation/dto/transaction.create.dto";
 
 @Injectable()
 export class CreateTransactionUseCase {
@@ -8,7 +9,7 @@ export class CreateTransactionUseCase {
         private readonly transactionRepository: ITransactionRepository,
     ) { }
 
-    async execute(data: any, userId: string) {
+    async execute(data: TransactionCreateDto, userId: string) {
         try {
             const obj = {
                 amount: data.amount,
