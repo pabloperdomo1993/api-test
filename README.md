@@ -64,3 +64,9 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## 📄 API Docs
+
+Swagger:
+
+🔗 [Swagger UI](http://localhost:3000/docs)
+
