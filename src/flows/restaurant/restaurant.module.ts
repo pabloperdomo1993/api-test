@@ -1,6 +1,7 @@
 import { Module } from "@nestjs/common";
 import { RestaurantController } from "./presentation/controller/restaurant.controller";
 import { GetRestaurantsUseCase } from "./application/use-case/get-restaurants.use-case";
+import { GetCitiesUseCase } from "./application/use-case/get-cities.use-case";
 
 @Module({
     imports: [],
@@ -8,7 +9,8 @@ import { GetRestaurantsUseCase } from "./application/use-case/get-restaurants.us
         RestaurantController
     ],
     providers: [
-        GetRestaurantsUseCase
+        GetRestaurantsUseCase,
+        GetCitiesUseCase
     ]
 })
 

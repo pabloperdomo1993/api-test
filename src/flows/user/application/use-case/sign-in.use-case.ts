@@ -3,6 +3,7 @@ import { IUserRepository } from "../../domain/interface/user.repository.interfac
 import { compareSync } from "bcryptjs";
 import { ConfigService } from "@nestjs/config";
 import * as jwt from 'jsonwebtoken';
+import { UserSignInDto } from "../../presentation/dto/user.sign-in.dto";
 
 @Injectable()
 export class SignInUseCase {
@@ -12,7 +13,7 @@ export class SignInUseCase {
         private readonly configService: ConfigService
     ) { }
 
-    async execute(data: any) {
+    async execute(data: UserSignInDto) {
         try {
             const user = await this.userRepository.findOne({
                 where: { email: data.email }

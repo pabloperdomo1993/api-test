@@ -1,6 +1,7 @@
 import { HttpException, HttpStatus, Inject, Injectable, Logger } from "@nestjs/common";
 import { IUserRepository } from "../../domain/interface/user.repository.interface";
 import { hashSync } from 'bcryptjs';
+import { UserSignUpDto } from "../../presentation/dto/user.sign-up.dto";
 
 @Injectable()
 export class SignUpUseCase {
@@ -9,7 +10,7 @@ export class SignUpUseCase {
         private readonly userRepository: IUserRepository
     ) { }
 
-    async execute(data: any) {
+    async execute(data: UserSignUpDto) {
         try {
             const user = this.userRepository.findOne({
                 where: { email: data.email }
