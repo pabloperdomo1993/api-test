@@ -70,3 +70,6 @@ Swagger:
 
 🔗 [Swagger UI](http://localhost:3000/docs)
 
+## 📂 Postman
+
+Folder: docs
