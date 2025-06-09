@@ -1,4 +1,4 @@
-import { Controller, Post } from "@nestjs/common";
+import { Body, Controller, Post } from "@nestjs/common";
 import { SignInUseCase } from "../../application/use-case/sign-in.use-case";
 import { SignUpUseCase } from "../../application/use-case/sign-up.use-case";
 
@@ -10,8 +10,8 @@ export class UserController {
     ) { }
 
     @Post('sign-up')
-    async signUp() {
-        return await this.signUpUseCase.execute();
+    async signUp(@Body() data: any) {
+        return await this.signUpUseCase.execute(data);
     }
 
     @Post('sign-in')
