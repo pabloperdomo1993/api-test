@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { IUserRepository } from "../interface/user.repository.interface";
 import { InjectRepository } from "@nestjs/typeorm";
 import { UserEntity } from "../entity/user.entity";
-import { Repository } from "typeorm";
+import { FindOneOptions, Repository } from "typeorm";
 
 @Injectable()
 export class UserRepository implements IUserRepository {
@@ -14,5 +14,9 @@ export class UserRepository implements IUserRepository {
     async create(data: any): Promise<any> {
         const obj = this.userRepository.create(data);
         return await this.userRepository.save(obj);
+    }
+
+    async findOne(options: FindOneOptions<any>): Promise<any> {
+        return await this.userRepository.findOne(options);
     }
 }

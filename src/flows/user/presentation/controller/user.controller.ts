@@ -15,7 +15,7 @@ export class UserController {
     }
 
     @Post('sign-in')
-    async signIn() {
-        return await this.signInUseCase.execute();         
+    async signIn(@Body() data: any) {
+        return await this.signInUseCase.execute(data);         
     }
 }
