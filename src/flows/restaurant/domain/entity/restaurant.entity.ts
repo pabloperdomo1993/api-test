@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
 import { CityEntity } from './city.entity';
+import { TransactionEntity } from 'src/flows/transaction/domain/entity/transaction.entity';
 
 @Entity('restaurants')
 export class RestaurantEntity {
@@ -16,4 +17,7 @@ export class RestaurantEntity {
     @ManyToOne(() => CityEntity, city => city.restaurants)
     @JoinColumn({ name: 'cityId', referencedColumnName: 'code' })
     city: CityEntity;
+
+    @OneToMany(() => TransactionEntity, transaction => transaction.user)
+    transactions: TransactionEntity[];
 }

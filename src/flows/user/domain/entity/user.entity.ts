@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { TransactionEntity } from 'src/flows/transaction/domain/entity/transaction.entity';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
 @Entity('users')
 export class UserEntity {
@@ -29,4 +30,7 @@ export class UserEntity {
 
     @Column('timestamp', { nullable: true })
     updatedAt: Date;
+
+    @OneToMany(() => TransactionEntity, transaction => transaction.user)
+    transactions: TransactionEntity[];
 }

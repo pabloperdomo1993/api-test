@@ -39,7 +39,7 @@ $ npm install
 $ docker compose up
 
 # migrations
-$ npm run typeorm migration:run -- -d src/database/connection_by_migration.ts
+$ npm run migration:run
 
 # development
 $ npm run start
